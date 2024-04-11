@@ -1,5 +1,13 @@
 # Bandit OverTheWire Writeup
 
+## How to connect to the Bandit server
+
+To connect to the Bandit server, you can use the following command for `bandit0`(password is also `bandit0`):
+
+```bash
+ ssh bandit0@bandit.labs.overthewire.org -p 2220
+```
+
 ## Level 0 → Level 1
 
 The password for the next level is stored in a file called `readme` located in the home directory.
