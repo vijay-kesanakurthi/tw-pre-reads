@@ -2,6 +2,7 @@
 
 - Alt + Enter : Show Quick Fixes
 - Alt + Shift +F10: Run Tests
+- Alt + F12 : New
 - Ctrl + Alt + Insert: Generate Code
 - Ctrl + Alt + V : Extract Variable
 - Ctrl + Alt + M : Extract Method
@@ -10,4 +11,5 @@
 - Shift + Shift : Search Everywhere
 - Alt + 1 : Project View
 - Alt + F12 : Terminal
-- Ctrl + Alt + L : Reformat Code
+- Ctrl + Alt + L : Refract Code
+- Shift+ Alt + T : Surround With

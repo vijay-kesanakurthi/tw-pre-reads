@@ -16,7 +16,6 @@ public class PrimeNumberCheckerTest {
     @Test
     void ShouldReturnFalseIfTheNumberIsNotPrime() {
         var primeNumber = new PrimeNumberChecker(4);
-
         var checked = primeNumber.check();
 
         assertFalse(checked);
@@ -30,5 +29,6 @@ public class PrimeNumberCheckerTest {
 
         assertTrue(checked);
     }
+
 
 }
