@@ -6,15 +6,9 @@ public class PrimeNumberChecker {
     }
 
     public boolean check() {
-        if (number < 2) {
-            return false;
-        }
+        if (number < 2) return false;
         var range = number / 2;
-        for (int i = 2; i <= range; i++) {
-            if (isDivisible(i)) {
-                return false;
-            }
-        }
+        for (int i = 2; i <= range; i++) if (isDivisible(i)) return false;
         return true;
     }
 
