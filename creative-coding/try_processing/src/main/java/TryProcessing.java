@@ -23,7 +23,7 @@ public class TryProcessing extends PApplet {
             drawRowOfCircles();
     }
 
-    private void drawCircle(int x, ){
+    private void drawCircle(int x ){
         ellipse(x, 50, 50, 50);
         fill(200, 0, 100);
     }
