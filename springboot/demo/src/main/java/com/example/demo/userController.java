@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 public class userController {
 
     @GetMapping(path="/{userId}")
-    public String getUser(@PathVariable String userId){
-        return "The user id is: " + userId;
+    public String getUser(@PathVariable String userId, @RequestParam(value="page") int page){
+        return "The user id is: " + userId+ " and the page is: " + page;
     }
 
     @PostMapping
