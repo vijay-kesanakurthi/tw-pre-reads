@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
 
-import com.example.demo.models.userRest;
+import com.example.demo.models.UserRest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/users")
-public class userController {
+public class UserController {
 
     @GetMapping
     public String getUsers( @RequestParam(value="page") int page, @RequestParam(value="limit",defaultValue = "1",required = false) int limit){
@@ -18,18 +18,20 @@ public class userController {
 
     @GetMapping(path="/{userId}",produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
 
-    public ResponseEntity<userRest> getUser(@PathVariable String userId){
-        userRest user = new userRest();
+    public ResponseEntity<UserRest> getUser(@PathVariable String userId){
+        UserRest user = new UserRest();
         user.setFirstName("John");
         user.setLastName("Doe");
         user.setEmail("jhondoe@gmail.com");
         user.setUserId(userId);
 
-        return new ResponseEntity<userRest>(user, HttpStatus.OK);
+        return new ResponseEntity<UserRest>(user, HttpStatus.OK);
     }
 
-    @PostMapping
-    public String setUser(){
+    @PostMapping(consumes = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE},
+            produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    public String createUser(@RequestBody UserDetailsRequestModel userDetails){
+
         return "User was created";
     }
 

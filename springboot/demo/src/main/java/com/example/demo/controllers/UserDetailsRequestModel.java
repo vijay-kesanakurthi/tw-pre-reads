@@ -1,20 +1,10 @@
-package com.example.demo.models;
+package com.example.demo.controllers;
 
-public class userRest {
+public class UserDetailsRequestModel {
     private String firstName;
     private String lastName;
     private String email;
-    private  String userId;
-
-    public userRest() {
-    }
-
-    public userRest(String firstName, String lastName, String email, String userId) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.userId = userId;
-    }
+    private String password;
 
     public String getFirstName() {
         return firstName;
@@ -40,11 +30,11 @@ public class userRest {
         this.email = email;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
