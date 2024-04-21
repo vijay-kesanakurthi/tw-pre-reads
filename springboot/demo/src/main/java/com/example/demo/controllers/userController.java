@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 
 import com.example.demo.models.userRest;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,7 +14,8 @@ public class userController {
         return "page is: " + page + " and the limit is: "+ limit;
     }
 
-    @GetMapping(path="/{userId}")
+    @GetMapping(path="/{userId}",produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+
     public userRest getUser(@PathVariable String userId){
 
         return new userRest("John", "Doe", "JhonDoe@gmail.com", userId);
