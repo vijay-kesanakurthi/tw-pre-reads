@@ -2,7 +2,9 @@ package com.example.demo.controllers;
 
 
 import com.example.demo.models.userRest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,9 +18,14 @@ public class userController {
 
     @GetMapping(path="/{userId}",produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
 
-    public userRest getUser(@PathVariable String userId){
+    public ResponseEntity<userRest> getUser(@PathVariable String userId){
+        userRest user = new userRest();
+        user.setFirstName("John");
+        user.setLastName("Doe");
+        user.setEmail("jhondoe@gmail.com");
+        user.setUserId(userId);
 
-        return new userRest("John", "Doe", "JhonDoe@gmail.com", userId);
+        return new ResponseEntity<userRest>(user, HttpStatus.OK);
     }
 
     @PostMapping
