@@ -1,15 +1,22 @@
-package com.example.demo;
+package com.example.demo.controllers;
 
 
+import com.example.demo.models.userRest;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/users")
 public class userController {
 
+    @GetMapping
+    public String getUsers( @RequestParam(value="page") int page, @RequestParam(value="limit",defaultValue = "1",required = false) int limit){
+        return "page is: " + page + " and the limit is: "+ limit;
+    }
+
     @GetMapping(path="/{userId}")
-    public String getUser(@PathVariable String userId, @RequestParam(value="page") int page, @RequestParam(value="limit",defaultValue = "1",required = false) int limit){
-        return "The user id is: " + userId+ " and the page is: " + page + " and the limit is: "+ limit;
+    public userRest getUser(@PathVariable String userId){
+
+        return new userRest("John", "Doe", "JhonDoe@gmail.com", userId);
     }
 
     @PostMapping
