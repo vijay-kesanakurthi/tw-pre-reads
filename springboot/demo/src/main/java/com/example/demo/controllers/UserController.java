@@ -1,10 +1,13 @@
 package com.example.demo.controllers;
 
 
+import com.example.demo.models.UserDetailsRequestModel;
 import com.example.demo.models.UserRest;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -30,9 +33,17 @@ public class UserController {
 
     @PostMapping(consumes = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE},
             produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public String createUser(@RequestBody UserDetailsRequestModel userDetails){
+    public ResponseEntity<String> createUser(@Valid @RequestBody UserDetailsRequestModel userDetails){
 
-        return "User was created";
+
+
+        UserDetailsRequestModel userDetailsRequestModel = new UserDetailsRequestModel();
+        userDetailsRequestModel.setFirstName(userDetails.getFirstName());
+        userDetailsRequestModel.setLastName(userDetails.getLastName());
+        userDetailsRequestModel.setEmail(userDetails.getEmail());
+        userDetailsRequestModel.setPassword(userDetails.getPassword());
+
+        return new ResponseEntity<String>("User was created", HttpStatus.OK);
     }
 
     @PutMapping
