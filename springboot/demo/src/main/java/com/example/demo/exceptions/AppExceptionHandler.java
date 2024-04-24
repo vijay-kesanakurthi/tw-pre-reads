@@ -18,18 +18,14 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
 
     }
 
-    @ExceptionHandler(value ={ NullPointerException.class})
+    @ExceptionHandler(value ={ NullPointerException.class,UserServiceException.class})
     public ResponseEntity<Object> handleNullPointerException(Exception ex, WebRequest request){
         return getObjectResponseEntity(ex);
 
     }
 
 
-    @ExceptionHandler(value ={ UserServiceException.class})
-    public ResponseEntity<Object> handleUserServiceException(Exception ex, WebRequest request){
-        return getObjectResponseEntity(ex);
 
-    }
 
     private ResponseEntity<Object> getObjectResponseEntity(Exception ex) {
         String errorMessageDescription = ex.getLocalizedMessage();
