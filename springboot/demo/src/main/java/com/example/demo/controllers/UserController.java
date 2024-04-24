@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 
+import com.example.demo.exceptions.UserServiceException;
 import com.example.demo.models.UserDetailsRequestModel;
 import com.example.demo.models.UserRest;
 import com.example.demo.models.UserUpdateModel;
@@ -29,8 +30,7 @@ public class UserController {
     @GetMapping(path="/{userId}",produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
 
     public ResponseEntity<UserRest> getUser(@PathVariable String userId){
-        String first = null;
-        var length = first.length();
+        if(true) throw new UserServiceException("A user service exception is thrown");
         if( users.containsKey(userId)){
             return new ResponseEntity<>(users.get(userId), HttpStatus.OK);
         }else{

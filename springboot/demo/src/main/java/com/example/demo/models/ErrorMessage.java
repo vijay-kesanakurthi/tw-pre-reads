@@ -6,6 +6,8 @@ public class ErrorMessage {
     private Date timestamp;
     private String message;
 
+
+
     public Date getTimestamp() {
         return timestamp;
     }
