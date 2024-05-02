@@ -33,7 +33,7 @@ export default function Board() {
     }
 
     return (
-        <>
+        <div data-cy="board">
             <div className="status">{status}</div>
             {board.map(i => (
                 <div key={i} className="board-row">
@@ -42,7 +42,7 @@ export default function Board() {
                     ))}
                 </div>
             ))}
-        </>
+        </div>
     );
 }
 
