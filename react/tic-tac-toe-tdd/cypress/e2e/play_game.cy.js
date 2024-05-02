@@ -54,7 +54,6 @@ describe("Testing Game", () => {
     cy.get("[data-cy=square]").eq(3).click();
     cy.get("[data-cy=square]").eq(4).click();
     cy.get("[data-cy=square]").eq(6).click();
-
     cy.get(".status").should("contain.text", "Winner: X");
   });
 
@@ -81,5 +80,19 @@ describe("Testing Game", () => {
     cy.get("[data-cy=square]").eq(6).click();
     cy.get("[data-cy=square]").eq(5).click();
     cy.get(".status").should("contain.text", "Draw!");
+  });
+
+  it("Win the game and square should not be clickable", () => {
+    cy.visit("http://localhost:3000");
+    cy.get("[data-cy=square]").first().click();
+    cy.get("[data-cy=square]").eq(1).click();
+    cy.get("[data-cy=square]").eq(3).click();
+    cy.get("[data-cy=square]").eq(4).click();
+    cy.get("[data-cy=square]").eq(8).click();
+    cy.get("[data-cy=square]").eq(7).click();
+
+    cy.get("[data-cy=square]").eq(6).click();
+
+    cy.get("[data-cy=square]").eq(6).should("have.text", "");
   });
 });
