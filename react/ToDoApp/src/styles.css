@@ -10,7 +10,14 @@
 }
 
 .SubHeader{
- 
  text-align: center;
   color: black;
+}
+
+h3:hover{
+   cursor: pointer;
+}
+
+.strike{
+  text-decoration: line-through;
 }
