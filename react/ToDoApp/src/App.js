@@ -1,16 +1,27 @@
 import "./styles.css";
 import Header from "./Header/Header";
-import Count from "./Count/Count";
 import SubHeader from "./SubHeader/SubHeader";
+import ToDOItem from "./ToDoItem/ToDoItem";
 
 export default function App() {
+  const todoList = [
+    "Read SpringBoot",
+    "Complete assignments",
+    "Prepare breakfast",
+    "Sleep for 2 hours",
+    "Take a shower",
+  ];
   return (
     <div className="App">
       <Header />
       <SubHeader />
-      <Count data={0} />
+
       <hr />
-      <div>“Nothing to do buddy. Sleep!!”</div>
+      <div>
+        {todoList.map((todo, index) => (
+          <ToDOItem key={index} data={todo} />
+        ))}
+      </div>
     </div>
   );
 }
