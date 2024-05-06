@@ -1,17 +1,26 @@
-.Application {
+.App {
   font-family: sans-serif;
   text-align: center;
+
+}
+
+ html, body {
+  background-color:  #fda085 ;
+  
 }
 
 .Header{
   text-align: center;
-  color: black;
-
+  color: white;
+  font-size: 40px;
+  font-weight: bolder;
+  margin-top: 20px;
 }
 
 .SubHeader{
  text-align: center;
-  color: black;
+  color: white;
+  font-size: 15px;
 }
 
 h3:hover{
@@ -19,5 +28,67 @@ h3:hover{
 }
 
 .strike{
-  text-decoration: line-through;
+  text-decoration: line-through red;
+}
+
+.input-area{
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.input-area input{
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
+  padding: 5px;
+  padding-left: 10px;
+  border-radius: 5px 0px 0px 5px;
+  border:none;
+  background-color: white;
+  outline: none;
+}
+
+.input-area button{
+  height: 35Spx;
+  font-size: 20px;
+  border: 0 0 0 1px;
+  padding: 10px;
+  border-radius: 0px 5px 5px 0px;
+  background-color: white;
+}
+.todo-list{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.todo-item{
+  background-color:white;
+  width: 40vw;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 0px;
+  text-align: left;
+  font-weight: 500;
+}
+
+.remove-completed{
+  margin-top: 20px;
+  background-color:white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+
+}
+
+.remove-completed:hover{
+  background-color: #f2f2f2;
+  cursor: pointer;
 }

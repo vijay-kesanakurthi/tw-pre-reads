@@ -12,6 +12,7 @@ export default function App() {
     { task: "Sleep for 2 hours", status: "pending" },
     { task: "Take a shower", status: "pending" },
   ]);
+  const [newTask, setNewTask] = useState("");
 
   const handleClick = (id) => {
     setTodoList((e) =>
@@ -27,17 +28,33 @@ export default function App() {
       })
     );
   };
-
   function isTodoEmpty() {
     return todoList.length === 0;
   }
+
   return (
     <div className="App">
       <Header />
       <SubHeader />
 
-      <hr />
-      <div>
+      <div className="input-area">
+        <input
+          type="text"
+          placeholder="Add a task"
+          value={newTask}
+          onChange={(e) => setNewTask(e.target.value)}
+        />
+        <button
+          onClick={() => {
+            newTask.length > 3 &&
+              setTodoList((e) => [...e, { task: newTask, status: "pending" }]);
+            setNewTask("");
+          }}
+        >
+          Add
+        </button>
+      </div>
+      <div className="todo-list">
         {todoList.map((todo, index) => (
           <ToDOItem
             key={index}
@@ -51,6 +68,7 @@ export default function App() {
       <br />
       {!isTodoEmpty() && (
         <button
+          className="remove-completed"
           onClick={() => {
             setTodoList((e) => e.filter((todo) => todo.status === "pending"));
           }}
