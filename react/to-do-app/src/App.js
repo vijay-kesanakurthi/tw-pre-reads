@@ -1,17 +1,19 @@
-import "./styles.css";
+import "./App.css";
 import Header from "./Header/Header";
 import SubHeader from "./SubHeader/SubHeader";
 import ToDOItem from "./ToDoItem/ToDoItem";
 import { useState } from "react";
 
+const initialTodoList = [
+  { task: "Read SpringBoot", status: "pending" },
+  { task: "Complete assignments", status: "pending" },
+  { task: "Prepare breakfast", status: "pending" },
+  { task: "Sleep for 2 hours", status: "pending" },
+  { task: "Take a shower", status: "pending" },
+];
+
 export default function App() {
-  const [todoList, setTodoList] = useState([
-    { task: "Read SpringBoot", status: "pending" },
-    { task: "Complete assignments", status: "pending" },
-    { task: "Prepare breakfast", status: "pending" },
-    { task: "Sleep for 2 hours", status: "pending" },
-    { task: "Take a shower", status: "pending" },
-  ]);
+  const [todoList, setTodoList] = useState(initialTodoList);
   const [newTask, setNewTask] = useState("");
 
   const handleClick = (id) => {
