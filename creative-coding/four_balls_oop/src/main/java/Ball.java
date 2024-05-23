@@ -14,15 +14,6 @@ class Ball  {
         this.speed = speed;
         this.x = 0;
     }
-
-//    public static void  setDiameter(int diameter) {
-//        Ball.diameter = diameter;
-//    }
-//
-//    public void setX(int x) {
-//        this.x = x;
-//    }
-
     public void draw() {
         p.ellipse(x, y, Ball.diameter, Ball.diameter);
         x += speed;
